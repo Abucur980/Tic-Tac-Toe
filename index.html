@@ -16,27 +16,34 @@
 <body>
     <h1 class="text-center mt-5">Tic Tac Toe Game</h1>
     <div class="container mt-5" style="padding:0;">
-        <table class="m-auto" style="width:25rem;">
+        
+        <table class="m-auto tic-tac-toe-box">
+            <div class="tic-tac-toe-box-cover d-none"></div>
             <tbody>
                 <tr>
-                    <td class="bg-primary box text-center">X</td>
-                    <td class="bg-primary box text-center">O</td>
-                    <td class="bg-primary box text-center">X</td>
+                    <td class="bg-primary box text-center"></td>
+                    <td class="bg-primary box text-center"></td>
+                    <td class="bg-primary box text-center"></td>
                 </tr>
                 <tr>
-                    <td class="bg-primary box text-center">X</td>
-                    <td class="bg-primary box text-center">O</td>
-                    <td class="bg-primary box text-center">X</td>
+                    <td class="bg-primary box text-center"></td>
+                    <td class="bg-primary box text-center"></td>
+                    <td class="bg-primary box text-center"></td>
                 </tr>
                 <tr>
-                    <td class="bg-primary box text-center">X</td>
-                    <td class="bg-primary box text-center">O</td>
-                    <td class="bg-primary box text-center">X</td>
+                    <td class="bg-primary box text-center"></td>
+                    <td class="bg-primary box text-center"></td>
+                    <td class="bg-primary box text-center"></td>
                 </tr>
             </tbody>
         </table>
     </div>
-    <h2 class="text-center mt-3">X has won! &nbsp Draw! &nbsp O has won!</h2>
+    
+    <div class="text-center">
+        <h2 id="game-status" class="text-center mt-3"></h2>
+        <button class="btn btn-primary mt-5 position-relative d-none" style="z-index:1;" onclick="window.location.reload();">Start over!</button>
+    </div>
+    
     <script src="index.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"

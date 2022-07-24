@@ -1,7 +1,18 @@
 .box {
+    width: 7rem;
     height: 7rem;
     padding: 0.5rem;
     font-size: 3rem;
-    border: 4px black solid;
+    border: 5px white solid;
     color: white;
+}
+
+.tic-tac-toe-box-cover{
+    width:24rem;
+    height: 40rem;
+    position: absolute;
+    margin:auto;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
