@@ -1,23 +1,23 @@
 // tic tac toe grid
 const boxes = document.querySelectorAll(".box");
 // current move
-let counter = 0;
+let currentMoveCounter = 0;
 // the sequence
 let sequence = ['', '', '', '', '', '', '', ''];
 
 // for each element of the grid when clicked display x or o
 boxes.forEach((box, index) => {
     box.addEventListener('click', function() {
-        insertXorO(counter, index);
-        ++counter; 
+        insertXorO(currentMoveCounter, index);
+        ++currentMoveCounter; 
         // remove the event after it happened
         this.removeEventListener('click', arguments.callee); 
     });
 })
 
 // if current move is even(x) or odd(0)
-function insertXorO(counter, index) {
-    if (counter % 2 === 0) {
+function insertXorO(currentMoveCounter, index) {
+    if (currentMoveCounter % 2 === 0) {
         sequence.splice(index, 1, "X");
         if (boxes[index].innerHTML !== "X" && boxes[index].innerHTML !== "O") {
             boxes[index].innerHTML = "X";   
@@ -38,7 +38,7 @@ function checkSequence() {
     } else if (checkHorizontalLines("O") === true || checkVerticalLines("O") === true || checkObliqueLines("O")  === true) {
         displayStatus("O");
         startOver();
-    } else if (counter === 8) {
+    } else if (currentMoveCounter === 8) {
         document.getElementById('game-status').innerText = "Draw!";
         startOver();
     }
@@ -50,6 +50,7 @@ function checkHorizontalLines(player) {
          ((sequence[6] === player && sequence[7] === player && sequence[8] === player)) ) {
             return true;
     }
+    return false;
 }
 
 function checkVerticalLines(player) {
@@ -58,13 +59,15 @@ function checkVerticalLines(player) {
          ((sequence[2] === player && sequence[5] === player && sequence[8] === player)) ) {
             return true;
     }
+    return false;
 }
 
 function checkObliqueLines(player) {
     if ( (sequence[0] === player && sequence[4] === player && sequence[8] === player) || 
          (sequence[2] === player && sequence[4] === player && sequence[6] === player) ) {
-            return true;
+           return true;
     }
+    return false;
 }
 
 function displayStatus(player) {
