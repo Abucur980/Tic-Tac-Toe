@@ -18,15 +18,9 @@ boxes.forEach((box, index) => {
 // if current move is even(x) or odd(0)
 function insertXorO(currentMoveCounter, index) {
     if (currentMoveCounter % 2 === 0) {
-        sequence.splice(index, 1, "X");
-        if (boxes[index].innerHTML !== "X" && boxes[index].innerHTML !== "O") {
-            boxes[index].innerHTML = "X";   
-        }
+        addPlayerMove("X", index)
     } else {
-        sequence.splice(index, 1, "O");
-        if (boxes[index].innerHTML !== "X" && boxes[index].innerHTML !== "O") {
-            boxes[index].innerHTML = "O";
-        }
+        addPlayerMove("O", index)
     }
     checkSequence();
 }
@@ -41,6 +35,13 @@ function checkSequence() {
     } else if (currentMoveCounter === 8) {
         document.getElementById('game-status').innerText = "Draw!";
         startOver();
+    }
+}
+
+function addPlayerMove(player, index) {
+    sequence.splice(index, 1, player);
+    if (boxes[index].innerHTML !== "X" && boxes[index].innerHTML !== "O") {
+        boxes[index].innerHTML = player;
     }
 }
 
